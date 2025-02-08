@@ -17,3 +17,36 @@ git remote remove origin
 
 # 원격지 주소 변경 
 git remote set-url origin 레포주소
+
+# 깃 관련 정보 확인 
+git config --list
+
+# 타인의 레포지토리를 클론받는 방법 
+#  1. 커밋이력 그대로 가져오기 
+git clone 타인레포주소 
+#  해당 폴더로 이동 후 깃헙 레포주소 변경 
+git remote set-url origin 내 레포주소 
+git push origin main 
+
+#  2. 커밋이력 없이 레포 가져오기 
+git clone 타인레포주소 
+# 해당 폴더로 이동 후 .git 폴더 삭제 
+git init 
+git remote add origin 내 레포주소
+git add . 
+git commit -m "first"
+git push origin master
+
+# 사용자 지정 방법 
+# 전역적 사용자(이름, 이메일) 지정
+git config --global user.name "user-name"
+git config --global user.email "user-email"
+# 지역적 사용자 지정
+git config --local user.name "user-name"
+git config --local user.email "user-email"
+# 사용자 정보 조회
+git config user.name
+git config user.email
+git config --list # q를 통해 빠져나갈 수 있다. 리눅스 vi도 동일함 
+# 특정 레포지터리 안에서 조회하면 특정 레포의 지역정보가 조회되고, 레포지터리 밖에서 조회하면 전역 정보를 조회한다.
+
